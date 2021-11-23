@@ -4,16 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
         // PT Bac 1 1 ẩn
-        System.out.println("Phương trình bậc nhất có nghiệm là: "+ PTBac1(6, 7));
+        System.out.println("Phương trình bậc nhất có nghiệm là: " + PTBac1(6, 7));
 
         // PT Bac 2 1 ẩn
-        double x[] =PTBac2(1,-3,2);
-        for (int i = 0; i< x.length; i++){
-            System.out.println("Nghiệm thứ #" + (i+1) + " của phương trình bậc 2 là: " + x[i]);
+        double x[] = PTBac2(1, -3, 2);
+        for (int i = 0; i < x.length; i++) {
+            System.out.println("Nghiệm thứ #" + (i + 1) + " của phương trình bậc 2 là: " + x[i]);
         }
 
         // Số nguyên tố
-            PrimeNumber();
+        PrimeNumber();
     }
 
     public static double PTBac1(double a, double b) {
@@ -25,14 +25,20 @@ public class Main {
     public static double[] PTBac2(double a2, double b2, double c2) {
         double dental = b2 * b2 - 4 * a2 * c2;
         double[] x = new double[2];
-        if (dental == 0) {
-            x[0] = Math.round(-b2 / (2 * a2) * 100d) / 100d;
-            x[1] = Double.parseDouble("NaN");
-            return x;
-        } else if (dental > 0) {
-            x[0] = Math.round((-b2 + Math.sqrt(dental)) / 2 * a2 * 100d) / 100d;
-            x[1] = Math.round((-b2 - Math.sqrt(dental)) / 2 * a2 * 100d) / 100d;
-            return x;
+        if (a2 != 0) {
+            if (dental == 0) {
+                x[0] = Math.round(-b2 / (2 * a2) * 100d) / 100d;
+                x[1] = Double.parseDouble("NaN");
+                return x;
+            } else if (dental > 0) {
+                x[0] = Math.round((-b2 + Math.sqrt(dental)) / 2 * a2 * 100d) / 100d;
+                x[1] = Math.round((-b2 - Math.sqrt(dental)) / 2 * a2 * 100d) / 100d;
+                return x;
+            } else {
+                x[0] = Double.parseDouble("NaN");
+                x[1] = Double.parseDouble("NaN");
+                return x;
+            }
         } else {
             x[0] = Double.parseDouble("NaN");
             x[1] = Double.parseDouble("NaN");
@@ -40,12 +46,12 @@ public class Main {
         }
     }
 
-    public static void PrimeNumber(){
+    public static void PrimeNumber() {
 
         boolean isCheck = false;
         System.out.print("Các số nguyên tố < 20 lần lượt: ");
-        for (int x = 2; x<20;x++) {
-            if (x == 2){
+        for (int x = 2; x < 20; x++) {
+            if (x == 2) {
                 System.out.print(x + " ");
             } else {
                 for (int i = 2; i < x; i++) {
@@ -55,7 +61,7 @@ public class Main {
                     }
                     isCheck = true;
                 }
-                if (isCheck){
+                if (isCheck) {
                     System.out.print(x + " ");
                 }
                 isCheck = false;
